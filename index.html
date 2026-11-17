@@ -57,40 +57,34 @@ dl{margin:0}
 dt{font-weight:600}
 dd{margin:0 0 .75rem;color:var(--mute)}
 .contact a.big{display:inline-block;font:800 clamp(1.6rem,5vw,3rem)/1.1 'Bricolage Grotesque',sans-serif;text-decoration-color:var(--sun);text-decoration-thickness:6px;text-underline-offset:8px;word-break:break-all}
+.track{display:flex;gap:1.25rem;overflow-x:auto;scroll-snap-type:x mandatory;padding-bottom:.75rem;scrollbar-width:thin}
+.slide{flex:0 0 min(88%,430px);scroll-snap-align:start;border-radius:14px;padding:1.75rem;display:flex;flex-direction:column;gap:1rem}
+.t-card{background:var(--sun);color:#14213D}
+.t-card blockquote{margin:0;font:800 1.3rem/1.3 'Bricolage Grotesque',Figtree,sans-serif}
+.t-card cite{font-style:normal;font-weight:600;margin-top:auto}
+.s-card{background:var(--card);border:1px solid var(--line)}
+.s-card .svc{font-weight:600;margin:0}
+.s-card h3{font-size:1.45rem;line-height:1.15}
+.stat{font:800 4rem/1 'Bricolage Grotesque',sans-serif;color:var(--hib);margin:0}
+.s-card p{margin:0}
+.src{font-size:.85rem;color:var(--mute);margin-top:auto!important}
+.car-btns{display:flex;gap:.5rem;margin-top:1rem}
+.car-btns button{font:600 1rem Figtree,sans-serif;color:var(--ink);background:transparent;border:2px solid var(--ink);border-radius:999px;padding:.4rem 1.1rem;cursor:pointer}
+.car-btns button:hover{background:var(--ink);color:var(--bg)}
+.offer{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin:0 0 1.5rem}
+.offer div{border-top:4px solid var(--sun);padding-top:.9rem}
+.offer h3{font-size:1.4rem;margin-bottom:.4rem}
+.offer p{margin:0;color:var(--mute)}
+.cta{display:inline-block;font:600 1.05rem Figtree,sans-serif;background:var(--sun);color:#14213D;text-decoration:none;border-radius:999px;padding:.7rem 1.5rem}
+.cta:hover{filter:brightness(.95)}
+@media (max-width:760px){.offer{grid-template-columns:1fr}}
 footer{padding:2rem 0 3rem;color:var(--mute);font-size:.9rem}
 @media (max-width:760px){.proj.feature{grid-template-columns:1fr}.feature .media{min-height:220px}.about{grid-template-columns:1fr}.sun{top:6rem}}
-
-.testimonials{padding-top:1rem}
-.testimonial-head{display:flex;justify-content:space-between;align-items:end;gap:1rem;margin-bottom:1.25rem}
-.testimonial-head p{max-width:34rem;margin:0;color:var(--mute)}
-.quote-shell{position:relative;overflow:hidden}
-.quote-track{display:grid;grid-auto-flow:column;grid-auto-columns:100%;transition:transform .45s cubic-bezier(.2,.8,.2,1)}
-.quote-card{min-height:285px;padding:clamp(1.5rem,4vw,3rem);border:1px solid var(--line);border-radius:18px;background:var(--card);display:flex;flex-direction:column;justify-content:space-between;gap:1.5rem}
-.quote-card.client{background:var(--ink);color:var(--bg);border-color:var(--ink)}
-.quote-card.client .quote-meta,.quote-card.client .quote-kicker{color:#D5DFE8}
-.quote-mark{font:800 4rem/.7 'Bricolage Grotesque',sans-serif;color:var(--sun)}
-.quote-kicker{font-size:.78rem;letter-spacing:.12em;text-transform:uppercase;font-weight:800;color:var(--sea)}
-.quote-card blockquote{font:600 clamp(1.45rem,3.2vw,2.5rem)/1.18 'Bricolage Grotesque',sans-serif;letter-spacing:-.025em;margin:0;max-width:58rem}
-.quote-card.research blockquote{font-size:clamp(1.35rem,2.7vw,2.1rem)}
-.quote-meta{display:flex;justify-content:space-between;align-items:end;gap:1rem;color:var(--mute);font-size:.9rem}
-.quote-meta p{margin:0;max-width:44rem}
-.quote-meta a{font-weight:700;text-decoration-color:var(--sun);text-underline-offset:3px;white-space:nowrap}
-.carousel-controls{display:flex;align-items:center;justify-content:space-between;margin-top:1rem;gap:1rem}
-.carousel-buttons{display:flex;gap:.5rem}
-.carousel-buttons button,.carousel-dot{border:1px solid var(--line);background:var(--card);color:var(--ink);cursor:pointer}
-.carousel-buttons button{width:2.8rem;height:2.8rem;border-radius:50%;font-size:1.2rem}
-.carousel-dots{display:flex;gap:.45rem;align-items:center}
-.carousel-dot{width:.55rem;height:.55rem;padding:0;border-radius:50%}
-.carousel-dot[aria-current="true"]{background:var(--sea);border-color:var(--sea);transform:scale(1.25)}
-.carousel-count{font-size:.85rem;color:var(--mute);font-variant-numeric:tabular-nums}
-@media(max-width:600px){.testimonial-head{display:block}.quote-card{min-height:350px}.quote-meta{align-items:start;flex-direction:column}.quote-meta a{white-space:normal}}
-@media(prefers-reduced-motion:reduce){.quote-track{transition:none}}
-
 </style>
 </head>
 <body>
 <div class="wrap">
-<nav aria-label="Main"><span>Mike Andrei Nieto</span><div><a href="#work">Work</a><a href="#about">About</a><a href="#contact">Contact</a></div></nav>
+<nav aria-label="Main"><span>Mike Andrei Nieto</span><div><a href="#work">Work</a><a href="#services">Services</a><a href="#about">About</a><a href="#contact">Contact</a></div></nav>
 
 <header class="hero">
 <div class="sun" aria-hidden="true"></div>
@@ -121,35 +115,47 @@ footer{padding:2rem 0 3rem;color:var(--mute);font-size:.9rem}
 </div>
 </section>
 
-<section class="testimonials" id="testimonials" aria-labelledby="testimonials-title">
-  <div class="testimonial-head">
-    <div><h2 id="testimonials-title">Good work, good reasons.</h2><p>Thoughtful design is more than decoration. It helps small businesses show up clearly, stay memorable, and make it easier for customers to understand what they offer.</p></div>
-  </div>
-  <div class="quote-shell" aria-roledescription="carousel" aria-label="Client testimonial and creative service insights">
-    <div class="quote-track" id="quoteTrack">
-      <article class="quote-card client" aria-label="Client testimonial from Eli's Homebaked Goods">
-        <div><div class="quote-kicker">A note from a client · Client testimonial</div><div class="quote-mark" aria-hidden="true">“</div><blockquote>Partnering with Milo, who knows his stuff—not just in design, but also in content strategy—helped me establish a platform where customers can stay updated with my small business, and I'm glad to say I've been regularly sold out ever since.</blockquote></div>
-        <div class="quote-meta"><p><strong>Eli's Homebaked Goods</strong><br>Client feedback</p></div>
-      </article>
-      <article class="quote-card research" aria-label="Research insight about cohesive branding">
-        <div><div class="quote-kicker">01 · Branding</div><div class="quote-mark" aria-hidden="true">“</div><blockquote>Look consistent. Get remembered.</blockquote></div>
-        <div class="quote-meta"><p><strong>Why it matters:</strong> A cohesive identity helps customers recognize your business wherever they find you—from social posts to packaging.<br><small>Research note: A 2025 review of 63 studies links strategic branding with stronger SME outcomes.</small></p><a href="https://link.springer.com/article/10.1007/s11846-025-00931-9" target="_blank" rel="noopener">Explore the research ↗</a></div>
-      </article>
-      <article class="quote-card research" aria-label="Research insight about social media content">
-        <div><div class="quote-kicker">02 · Social media</div><div class="quote-mark" aria-hidden="true">“</div><blockquote>Show up. Stay top of mind.</blockquote></div>
-        <div class="quote-meta"><p><strong>Why it matters:</strong> Consistent, useful posts give people more chances to discover your products, keep up with your business, and come back.<br><small>Research note: A 2025 meta-analysis found a positive link between social engagement and sales.</small></p><a href="https://doi.org/10.1111/ijcs.70090" target="_blank" rel="noopener">Explore the research ↗</a></div>
-      </article>
-      <article class="quote-card research" aria-label="Research insight about short-form video">
-        <div><div class="quote-kicker">03 · Video &amp; animation</div><div class="quote-mark" aria-hidden="true">“</div><blockquote>Make the value impossible to miss.</blockquote></div>
-        <div class="quote-meta"><p><strong>Why it matters:</strong> Motion and editing show how a product works, spotlight its best features, and make its value easier to understand.<br><small>Research note: A 2025 study of 372 consumers examined how short-form video shapes trust and purchase intention.</small></p><a href="https://www.nature.com/articles/s41598-025-94994-z" target="_blank" rel="noopener">Explore the research ↗</a></div>
-      </article>
-    </div>
-  </div>
-  <div class="carousel-controls">
-    <div class="carousel-buttons"><button type="button" id="quotePrev" aria-label="Previous card">←</button><button type="button" id="quoteNext" aria-label="Next card">→</button></div>
-    <div class="carousel-dots" role="group" aria-label="Choose a card"><button class="carousel-dot" type="button" aria-label="Show card 1" aria-current="true" data-slide="0"></button><button class="carousel-dot" type="button" aria-label="Show card 2" aria-current="false" data-slide="1"></button><button class="carousel-dot" type="button" aria-label="Show card 3" aria-current="false" data-slide="2"></button><button class="carousel-dot" type="button" aria-label="Show card 4" aria-current="false" data-slide="3"></button></div>
-    <span class="carousel-count" id="quoteCount" aria-live="polite">01 / 04</span>
-  </div>
+<section id="why">
+<h2>Why it works</h2>
+<div class="track" id="track" tabindex="0" role="region" aria-label="Client testimonial and research on why small businesses need design, social content, and video">
+<article class="slide s-card">
+<p class="svc">Branding and design</p>
+<h3>Customers judge how credible you are by how you look.</h3>
+<p class="stat">46%</p>
+<p>of people judged a website’s credibility partly by its design.</p>
+<p class="src">Stanford Persuasive Technology Lab and Consumer WebWatch, 2,684 participants. <a href="https://clickz.com/study-for-site-cred-looks-matter/56564/">Source</a></p>
+</article>
+<article class="slide s-card">
+<p class="svc">Content planning</p>
+<h3>Customers find small businesses on social, so a content plan keeps you found.</h3>
+<p class="stat">73%</p>
+<p>of new small businesses say their social media posts are their biggest revenue driver. And 49% of consumers now find new small businesses on social, ahead of search (40%).</p>
+<p class="src">Constant Contact, Small Business Now: <a href="https://news.constantcontact.com/2025-03-04-New-Wave-of-SMBs-is-Social-First,-Technology-Driven,-and-Highly-Adaptable?asPDF=1">2025 report</a> (1,600 small businesses) and <a href="https://www.prnewswire.co.uk/news-releases/the-rise-of-the-smb-creator-how-small-businesses-are-leveraging-social-media-and-ai-to-capture-consumer-attention-302796196.html">2026 report</a></p>
+</article>
+<article class="slide s-card">
+<p class="svc">Human-made work</p>
+<h3>Shoppers notice AI, and many back away from it.</h3>
+<p class="stat">53%</p>
+<p>of consumers are less likely to buy from brands they know use AI in social media content. Nearly 90% say brands should disclose it.</p>
+<p class="src">Clutch, August 2026 survey of 601 consumers. <a href="https://clutch.co/press-releases/ai-social-media-report">Source</a></p>
+</article>
+<figure class="slide t-card" style="margin:0">
+<p class="svc" style="margin:0;font-weight:600">From a client</p>
+<blockquote>“Partnering with Milo, who knows his stuff not just in design-sense, but also in content strategy, he helped me establish a platform where customers can stay updated with my small business, and I’m glad to say I’m regularly sold out ever since.”</blockquote>
+<cite>Eli, Eli’s Homebaked Goods</cite>
+</figure>
+</div>
+<div class="car-btns"><button type="button" id="prev" aria-label="Previous card">Previous</button><button type="button" id="next" aria-label="Next card">Next</button></div>
+</section>
+
+<section id="services">
+<h2>What I offer</h2>
+<div class="offer">
+<div><h3>Design</h3><p>Social posts, posters, and promo graphics made for your business.</p></div>
+<div><h3>Editing and animation</h3><p>Short videos and motion graphics for reels, ads, and product showcases.</p></div>
+<div><h3>Branding</h3><p>Logo, colors, and type that make you easy to recognize and remember.</p></div>
+</div>
+<a class="cta" href="#contact">Message me about your business</a>
 </section>
 
 <section id="about" class="about">
@@ -181,27 +187,15 @@ document.querySelectorAll('.filters button').forEach(function(b){
     });
   });
 });
-
-(function(){
-  var track=document.getElementById('quoteTrack');
-  if(!track)return;
-  var dots=Array.prototype.slice.call(document.querySelectorAll('.carousel-dot'));
-  var count=document.getElementById('quoteCount');
-  var index=0,total=dots.length;
-  function show(next){
-    index=(next+total)%total;
-    track.style.transform='translateX(-'+(index*100)+'%)';
-    dots.forEach(function(dot,i){dot.setAttribute('aria-current',i===index?'true':'false')});
-    count.textContent=String(index+1).padStart(2,'0')+' / '+String(total).padStart(2,'0');
-  }
-  document.getElementById('quotePrev').addEventListener('click',function(){show(index-1)});
-  document.getElementById('quoteNext').addEventListener('click',function(){show(index+1)});
-  dots.forEach(function(dot){dot.addEventListener('click',function(){show(Number(dot.dataset.slide))})});
-  var shell=track.parentElement,startX=null;
-  shell.addEventListener('touchstart',function(e){startX=e.changedTouches[0].clientX},{passive:true});
-  shell.addEventListener('touchend',function(e){if(startX===null)return;var delta=e.changedTouches[0].clientX-startX;if(Math.abs(delta)>45)show(index+(delta<0?1:-1));startX=null},{passive:true});
-})();
-
+var track=document.getElementById('track');
+function slide(dir){
+  var s=track.querySelector('.slide');
+  var step=s.getBoundingClientRect().width+20;
+  var reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  track.scrollBy({left:dir*step,behavior:reduce?'auto':'smooth'});
+}
+document.getElementById('prev').addEventListener('click',function(){slide(-1)});
+document.getElementById('next').addEventListener('click',function(){slide(1)});
 </script>
 </body>
 </html>
